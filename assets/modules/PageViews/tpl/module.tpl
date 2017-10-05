@@ -15,6 +15,9 @@
         };
     </script>
     <style>
+        .sectionBody > .tab-pane > .tab-page {
+            margin-top:0;
+        }
         .datagrid-view td {
             vertical-align: middle;
         }
