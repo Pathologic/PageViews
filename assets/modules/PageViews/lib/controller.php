@@ -12,8 +12,6 @@ class ModuleController {
     public $dlParams = array(
         "controller"  => "pageviews",
         "dir" => "assets/snippets/PageViews/DocLister/",
-        "table"       => "",
-        'idField'     => "",
         "api"         => 1,
         "idType"      => "documents",
         'ignoreEmpty' => 1,
