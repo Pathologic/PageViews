@@ -27,7 +27,7 @@ var columns = [ [
         align:'center',
         fixed:true,
         formatter:function(value,row){
-                return '<a class="action delete" href="javascript:void(0)" onclick="GridHelper.reset('+row.rid+')" title="Обнулить"><i class="fa fa-eraser fa-lg"></i></a>';
+                return '<a class="action delete" href="javascript:void(0)" onclick="GridHelper.reset('+row.id+')" title="Обнулить"><i class="fa fa-eraser fa-lg"></i></a>';
         }
     }
 ] ];
