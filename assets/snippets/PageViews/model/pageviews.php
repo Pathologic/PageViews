@@ -4,7 +4,7 @@
  * @package PageViews
  */
 class Model {
-    protected $modx = null;
+    protected $modx;
     protected $table = 'pageviews';
 
     /**
@@ -14,7 +14,7 @@ class Model {
     public function __construct(\DocumentParser $modx) {
         $this->modx = $modx;
         $this->table = $modx->getFullTableName($this->table);
-        if (!isset($_SESSION['pageviews'])) $_SESSION['pageviews'] = array();
+        if (!isset($_SESSION['pageviews'])) $_SESSION['pageviews'] = [];
     }
 
     /**
@@ -23,10 +23,10 @@ class Model {
      */
     public function hit($resourceId) {
         $resourceId = (int)$resourceId;
-        if (!$this->modx->getLoginUserID('mgr') && $resourceId && !in_array($resourceId, $_SESSION['pageviews'])) {
-            $classKey = $this->modx->db->escape($classKey);
+        if (!$this->modx->getLoginUserID('mgr') && $resourceId && isset($_SESSION['pageviews']) && !in_array($resourceId, $_SESSION['pageviews'])) {
             $this->modx->db->query("INSERT INTO {$this->table} (`rid`, `views`) VALUES ({$resourceId}, 1) ON DUPLICATE KEY UPDATE `views` = `views` + 1");
             $_SESSION['pageviews'][] = $resourceId;
+            $_SESSION['pageviews'] = array_slice($_SESSION['pageviews'], -50, 50);
         }
 
         return $this;

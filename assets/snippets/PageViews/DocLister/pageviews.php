@@ -11,8 +11,8 @@ class pageviewsDocLister extends site_contentDocLister
         parent::__construct($modx, $cfg, $startTime);
         $this->setFiltersJoin(" LEFT JOIN {$this->getTable('pageviews', 'pv')} ON `pv`.`rid`=`c`.`id`");
     }
-    
-    public static function prepare(array $data = array(), DocumentParser $modx, $_DocLister, prepare_DL_Extender $_extDocLister){
+
+    public static function prepare(array $data, DocumentParser $modx, $_DocLister){
         $unit = $_DocLister->getCFGDef('unit','просмотр,просмотра,просмотров');
         $unit = explode(',',$unit);
         if (isset($data['views']) && count($unit) > 2) {

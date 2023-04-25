@@ -25,13 +25,13 @@ class Module {
         $this->DLTemplate->setTemplatePath('assets/modules/PageViews/tpl/');
         $this->DLTemplate->setTemplateExtension('tpl');
         $ph = array(
-            'connector'	    => 	$this->modx->config['site_url'].'assets/modules/PageViews/ajax.php',
-            'theme' => $this->modx->config['manager_theme'],
-            'site_url'		=>	$this->modx->config['site_url'],
+            'connector'	    => MODX_SITE_URL . 'assets/modules/PageViews/ajax.php',
+            'theme' => $this->modx->getConfig('manager_theme'),
+            'site_url'		=>	MODX_SITE_URL,
             'manager_url'	=>	MODX_MANAGER_URL
         );
         $output = $this->DLTemplate->parseChunk('@FILE:module',$ph);
-        
+
         return $output;
     }
 }

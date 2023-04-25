@@ -1,7 +1,7 @@
 <?php
 include_once(MODX_BASE_PATH . 'assets/snippets/PageViews/model/pageviews.php');
 include_once(MODX_BASE_PATH . 'assets/snippets/DocLister/lib/DLTemplate.class.php');
-$rid = isset($rid) ? $rid : (isset($modx->documentIdentifier) && $modx->documentIdentifier ? $modx->documentIdentifier : 0);
+$rid = isset($rid) ? (int)$rid : (isset($modx->documentIdentifier) && $modx->documentIdentifier ? $modx->documentIdentifier : 0);
 $tpl = isset($tpl) ? $tpl : '@CODE:[+views+]';
 $unit = isset($unit) ? $unit : 'просмотр,просмотра,просмотров';
 $model = new \PageViews\Model($modx);
