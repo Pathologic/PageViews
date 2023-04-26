@@ -80,7 +80,7 @@ class ModuleController {
             $this->dlParams['sortDir'] = $_POST['order'];
         }
         $this->dlParams['prepare'] = function (
-            array $data = array(),
+            array $data,
             \DocumentParser $modx,
             \DocLister $_DL,
             \prepare_DL_Extender $_extDocLister
