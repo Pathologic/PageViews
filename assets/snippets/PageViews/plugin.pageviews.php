@@ -3,7 +3,7 @@ if (!defined('IN_MANAGER_MODE')) die();
 if ($modx->event->name == 'OnEmptyTrash') {
     if (empty($ids)) return;
     $where = implode(',', $ids);
-    $ld_table = $modx->getFullTableName('pageviews');
+    $pv_table = $modx->getFullTableName('pageviews');
     $modx->db->delete($pv_table, "`rid` IN ($where)");
 }
 if ($modx->event->name == 'OnDocFormRender') {
